@@ -1,0 +1,16 @@
+{
+  "name": "ionic-coffee-sass-jade",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "jade",
+    "coffee",
+    "watch"
+  ],
+  "watchPatterns": [
+    "dev/coffee/**/*",
+    "dev/jade/**/*",
+    "dev/scss/**/*",
+    "!www/lib/**/*"
+  ]
+}
