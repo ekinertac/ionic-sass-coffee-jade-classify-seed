@@ -4,7 +4,7 @@
 
 The modern starting point for an Ionic project with Sass, Jade, CoffeScript and ngClassify support
 
-ng-classify [documentation](ionic-sass-coffee-jade-classify-seed)
+ng-classify [documentation](https://github.com/CaryLandholt/ng-classify)
 
 ```shell
 $ npm install -g ionic
