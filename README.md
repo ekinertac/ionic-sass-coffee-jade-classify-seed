@@ -13,3 +13,21 @@ $ cd appName
 
 $ ./install
 ```
+
+##Usage:
+
+### Controller
+```
+class Admin extends Controller
+    constructor: ($scope, someService) ->
+        $scope.coolMethod = someService.coolMethod()
+```
+
+which is equivalent to
+```
+angular.module('app').controller('adminController', ['$scope', 'someService', function ($scope, someService) {
+    $scope.coolMethod = someService.coolMethod();
+}]);
+```
+
+Nice isn't it ?
