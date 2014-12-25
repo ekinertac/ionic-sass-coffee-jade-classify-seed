@@ -17,14 +17,14 @@ $ ./install
 ##Usage:
 
 ### Controller
-```
+```coffee
 class Admin extends Controller
     constructor: ($scope, someService) ->
         $scope.coolMethod = someService.coolMethod()
 ```
 
 which is equivalent to
-```
+```javascript
 angular.module('app').controller('adminController', ['$scope', 'someService', function ($scope, someService) {
     $scope.coolMethod = someService.coolMethod();
 }]);
