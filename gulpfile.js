@@ -9,6 +9,7 @@ var sh = require('shelljs');
 var jade = require('gulp-jade');
 var coffee = require('gulp-coffee');
 var ngClassify = require('gulp-ng-classify');
+var plumber = require('gulp-plumber');
 
 var paths = {
     sass  : ['./dev/scss/**/*.scss'],
@@ -20,6 +21,7 @@ gulp.task('default', ['sass', 'jade', 'coffee']);
 
 gulp.task('sass', function (done) {
     gulp.src(paths.sass)
+        .pipe(plumber())
         .pipe(sass())
         .pipe(gulp.dest('./www/css/'))
         .pipe(minifyCss({
@@ -32,10 +34,12 @@ gulp.task('sass', function (done) {
 
 gulp.task('jade', function (done) {
     gulp.src(paths.jade)
+        .pipe(plumber())
         .pipe(jade())
         .pipe(gulp.dest('./www/templates/'));
 
     gulp.src('./dev/jade/index.jade')
+        .pipe(plumber())
         .pipe(jade())
         .pipe(gulp.dest('./www/'))
         .on('end', done);
@@ -43,11 +47,12 @@ gulp.task('jade', function (done) {
 
 gulp.task('coffee', function (done) {
     gulp.src(paths.coffee)
+        .pipe(plumber())
         .pipe(ngClassify(function(){
             return {appName: 'app'};
         }))
 
-        .pipe(coffee({bare: true}).on('error', gutil.log))
+        .pipe(coffee({bare: true}))
         .pipe(concat('application.js'))
         .pipe(gulp.dest('./www/js'))
         .on('end', done)
